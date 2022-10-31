@@ -1,0 +1,6 @@
+Nouns: 1074
+Adjectives: 277
+Verbs: 546
+Adverbs: 170
+Interjections: 476
+Prepositions: 153
