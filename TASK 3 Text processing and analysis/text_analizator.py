@@ -14,7 +14,10 @@ from nltk.probability import FreqDist
 
 import pymorphy2
 
+# Ссылка для парсинга статей 
 full_source_link = 'https://habr.com/ru/search/?q=' + format(quote("NFT"))
+
+# Вырезаем https://habr.com/ru/ для генерации ссылок на статьи
 base_link = full_source_link.split( '/')[0] + '//' + full_source_link.split('/')[2]
 
 html = urlopen(full_source_link)
@@ -32,6 +35,7 @@ new_file_authors = 'authors.txt'
 new_file_authors_statistic = 'authors_statistic.txt'
 
 dir = './'
+# папка, куда сохраняются все файлы
 current_folder = 'TASK 3 Text processing and analysis/'
 
 
@@ -231,6 +235,8 @@ def calculate_authors_name(file_name, new_file, dir, current_folder):
     fdist = FreqDist(authors).most_common()
 
     txt_writer(fdist, new_file, dir, current_folder) 
+
+# ВЫЗОВ ФУНКЦИЙ
 
 # получаем количество публикаций для авторорв с последних 200 страниц из раздела Новости 
 authors_file_name = get_authors_name(news_link, new_file_authors, dir, current_folder)
