@@ -47,7 +47,7 @@ def get_articles_link(data, base_link, search_tag, search_class):
     return link_arr
 
 
-# переходим по каждой из ссылок и парсим в json название и контент статьи
+# переходим по каждой ссылке и парсим в json название и контент статьи
 def get_link_content(link_arr):
     links_content = {}
 
@@ -218,7 +218,7 @@ def get_authors_name(link, new_file, dir, current_folder):
 
     return file_name
 
-# Подсчитываем колиество пубикаций для каждого автора
+# Подсчитываем количество публикаций для каждого автора
 def calculate_authors_name(file_name, new_file, dir, current_folder):
     path = dir + current_folder + file_name
     authors = ''
@@ -232,7 +232,7 @@ def calculate_authors_name(file_name, new_file, dir, current_folder):
 
     txt_writer(fdist, new_file, dir, current_folder) 
 
-# получаем количество публикация для авторорв с последних 200 страниц из раздела Новости 
+# получаем количество публикаций для авторорв с последних 200 страниц из раздела Новости 
 authors_file_name = get_authors_name(news_link, new_file_authors, dir, current_folder)
 calculate_authors_name(authors_file_name, new_file_authors_statistic, dir, current_folder)
 
@@ -240,7 +240,7 @@ calculate_authors_name(authors_file_name, new_file_authors_statistic, dir, curre
 articles_link_arr = get_articles_link(bs, base_link, search_tag, search_class)
 txt_writer(articles_link_arr, new_file_links, dir, current_folder)
 
-# Записываем информацию и всех статьях в json файл
+# Записываем информацию о всех статьях в json файл
 links_content = get_link_content(articles_link_arr)
 json_file_name = json_writer(links_content, new_file, dir, current_folder)
 
